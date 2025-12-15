@@ -1,0 +1,117 @@
+/* إعدادات الشاشة الأساسية */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* يسمح بالارتفاع التلقائي والتمرير */
+    background-color: #000000;
+}
+
+/* حاوية الصفحة */
+#quran-page-container {
+    display: flex;
+    justify-content: center; /* توسيط أفقي */
+    width: 100%;
+}
+
+/* تنسيق الصورة: يجبرها على ملء العرض (المراد) */
+#quran-page-image {
+    width: 100%; /* يجبر الصورة على ملء عرض الشاشة */
+    height: auto; /* يحافظ على نسبة الصورة ويسمح بالتمرير */
+    display: block;
+}
+
+/* ------------------------------------- */
+/* تنسيق القائمة الجانبية (Side Menu) */
+/* ------------------------------------- */
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 350px; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto; 
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    /* 🟢 تم إزالة transform: translateX(0) لنجعل .hidden هي الحالة الافتراضية 🟢 */
+    transition: transform 0.3s ease-in-out; 
+}
+
+/* 🟢 حالة الاختفاء: تجعل القائمة مخفية خارج الشاشة في البداية 🟢 */
+.hidden {
+    transform: translateX(100%);
+}
+
+/* تنسيق عناصر القائمة الرئيسية */
+.menu-item {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    text-align: right;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* تنسيق التركيز لأجهزة التلفزيون */
+.menu-item:focus,
+.list-item:focus {
+    background-color: #555;
+    outline: 3px solid #f90; /* إطار برتقالي للتركيز */
+}
+
+/* تنسيق القوائم الفرعية التي تظهر داخل القائمة الجانبية */
+#sub-menu-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    
+    /* 🟢 التعديل الحاسم: تعيين ارتفاع محدد للسماح بالتمرير داخل الحاوية 🟢 */
+    height: calc(100vh - 200px); /* ارتفاع مناسب (100% من ارتفاع النافذة ناقص الهوامش) */
+    overflow-y: scroll; /* السماح بالتمرير داخل هذه الحاوية فقط */
+    
+    /* منع ظهور خطوط الإطار التي قد تعيق التركيز */
+    outline: none;
+}
+
+.list-item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #222;
+    color: white;
+    border: none;
+    text-align: right;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* ====================================== */
+/* إخفاء شريط التمرير في المتصفحات (اختياري) */
+/* ====================================== */
+
+/* 1. إخفاء شريط التمرير في متصفحات WebKit (Chrome, Safari, Edge) */
+html::-webkit-scrollbar,
+#sub-menu-container::-webkit-scrollbar {
+    display: none; /* إخفاء الشريط نفسه */
+}
+
+/* 2. إخفاء شريط التمرير لمتصفحات IE و Edge القديمة */
+html {
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* 3. إخفاء شريط التمرير لمتصفحات Firefox */
+body, #sub-menu-container {
+    scrollbar-width: none;  /* Firefox */
+}
