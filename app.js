@@ -22,7 +22,7 @@ setInterval(lockFocus, 200);
 
 // ================================
 function getPageFileName(pageNumber) {
-    return 'pages1/page_' + String(pageNumber).padStart(3, '0') + '.png';
+    return 'pages/page_' + String(pageNumber).padStart(3, '0') + '.png';
 }
 
 function showPage(pageNumber) {
@@ -95,4 +95,5 @@ function setupKeyHandling() {
             if (key === 13) toggleMenu();
         }
     }, true);
+
 }
