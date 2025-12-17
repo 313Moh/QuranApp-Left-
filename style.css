@@ -1,0 +1,86 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    cursor: none; /* تحسين إضافي */
+}
+
+/* عنصر حبس المؤشر */
+#tv-focus-trap {
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* حاوية الصفحة */
+#quran-page-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#quran-page-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* القائمة الجانبية */
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hidden {
+    transform: translateX(100%);
+}
+
+.menu-item,
+.list-item {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    text-align: right;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.menu-item:focus,
+.list-item:focus {
+    background-color: #555;
+    outline: none;
+}
+
+#sub-menu-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+/* إخفاء Scrollbars */
+html::-webkit-scrollbar,
+#sub-menu-container::-webkit-scrollbar {
+    display: none;
+}
